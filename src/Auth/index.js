@@ -114,7 +114,21 @@ class Auth {
 
         var noSecurePaths = Config.express.security.noSecurePaths;
 
-        if (noSecurePaths.includes(req.path)) return next();
+        if (noSecurePaths.includes(req.path)) {
+
+            if (req.body.scope != 'GLOBAL_USAGE') {
+                res.status(401)
+                    .send(
+                        {
+                            code: 0,
+                            msg: "Unauthorized"
+                        }
+                    )
+            } else {
+                next()
+            }
+            return;
+        }
 
         const authHeader = req.headers.authorization;
 

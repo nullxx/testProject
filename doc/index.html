@@ -17,17 +17,150 @@
 
 <div id="main">
 
-    <h1 class="page-title">Test Project</h1>
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h1>TEST PROJECT</h1>
+<p>Test project for RebellionPay team.</p>
+<h2>Getting Started</h2>
+<h3>Requested</h3>
+<p>We would like to start to use Cloudinary to save some public photos, but we are afraid about the use some people could do of this plaform.</p>
+<p>We need a Microservice with 2 calls made with Node.js.</p>
+<p>This applicaton is going to run into a cluster so it could be good dockerize the applica&quot;on.</p>
+<h3>Index</h3>
+<ul>
+<li><a href="#Security">Security</a> - Auth used on login (Bearer token)</li>
+<li><a href="#Database">Database</a> - Simulated DB storage</li>
+<li><a href="#Logging">Logging</a> - Log detailed processes</li>
+<li><a href="#Services">Services</a>
+<ul>
+<li><a href="#Cloudinary">Cloudinary</a>
+<ul>
+<li><a href="#Statistics">Statistics</a> - Get service data statistics</li>
+<li><a href="#Exporting">Exporting</a> - Export service data</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1>Security</h1>
+<p>As requested, we want to secure the usage of this platform.
+We will need <code>Authorization</code> header with token provided by:</p>
+<h2><code>/auth</code></h2>
+<p>For managging login permissions we use scopes.
+In the example one (<code>GLOBAL_USAGE</code>) gives permission for all paths.</p>
+<p>Headers:</p>
+<ul>
+<li><code>Content-Type: application/json</code></li>
+<li><code>Content-Length: &lt;calculate&gt;</code></li>
+</ul>
+<p>Body:</p>
+<pre class="prettyprint source lang-json"><code>{
+   &quot;nickname&quot;: &quot;nullx&quot;,
+   &quot;password&quot;: &quot;patata123&quot;,
+   &quot;scope&quot;: &quot;GLOBAL_USAGE&quot;
+}
+</code></pre>
+<h3>Response</h3>
+<table>
+<thead>
+<tr>
+<th>field</th>
+<th>value(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>number (0 or 1)</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>String</td>
+</tr>
+<tr>
+<td>data</td>
+<td>Object</td>
+</tr>
+<tr>
+<td>data.token</td>
+<td>String</td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre class="prettyprint source lang-json"><code>{
+   &quot;code&quot;: 1,
+   &quot;msg&quot;: &quot;Login successful&quot;,
+   &quot;data&quot;: {
+      &quot;token&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MCwiZnVsbE5hbWUiOiJKb24gTGFyYSBUcmlnbyIsIm5pY2tuYW1lIjoibnVsbHgiLCJwYXNzd29yZCI6IjU2NzM0NzIwYTg0Njg2MGE4YjdjMjgwYzQwN2M1ZjBkMWVkYTJlZTkyZDRhNjhhMWQ4YTAyNzkxNGJkMDhlMjEiLCJpYXQiOjE1OTYzNzYxNjcsImV4cCI6MTU5NjQ2MjU2N30.PXpDZxedS5zfNbxtuBYaDA88topkQUbH5zAxd8NHAQ8&quot;
+   }
+}
+</code></pre>
+<p>We will need to provide the <code>data.token</code> inside Authorization header.
+Example: <code>Autorization: Bearer &lt;data.token&gt;</code></p>
+<p><strong>Token expiration is configured in 24h</strong></p>
+<p><a href="https://nullxx.github.io/testProject/doc/Auth.html">Implementation</a></p>
+<h1>Database</h1>
+<p>As on the server given I couldn't setup any db motor, I simulated it by a <code>json</code> <a href="https://github.com/nullxx/testProject/blob/master/src/Database/db.json">file</a>.</p>
+<p><a href="https://nullxx.github.io/testProject/doc/Database.html">Implementation</a></p>
+<h1>Logging</h1>
+<p>Logging is a very important part of develop work.</p>
+<p>I wanted to store log locally and in the DB, that would be the best for error tracking purposes.</p>
+<p>Also I wanted to distinguish between activity and error.</p>
+<p>To report an activity or an error we can provide:</p>
+<ul>
+<li>code: activity or error code <strong>identifier</strong>.</li>
+<li>msg: <strong>description</strong> of activity or error.</li>
+<li>user: user id where the activity or error has appeared.</li>
+</ul>
+<p><a href="https://nullxx.github.io/testProject/doc/Logger.html">Implementation 0 =&gt; Log</a></p>
+<p><a href="https://nullxx.github.io/testProject/doc/ActionsLog.html">Implementation 1 =&gt; ActionsLog</a></p>
+<h1>Services</h1>
+<p>This is a platform that could host multiple services.</p>
+<h2>Cloudinary</h2>
+<h3>Statistics</h3>
+<h3>Exporting</h3></article>
+    </section>
+
+
+
+
+
+
 </div>
 
 <nav>
-    <h2><a href="index.html">INDEX</a></h2><h3>Classes</h3><ul><li><a href="ActionsLog.html">ActionsLog</a></li><li><a href="Auth.html">Auth</a></li><li><a href="Cloudinary.html">Cloudinary</a></li><li><a href="Database.html">Database</a></li><li><a href="Logger.html">Logger</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CreateConnection">CreateConnection</a></li><li><a href="global.html#executeExportType">executeExportType</a></li><li><a href="global.html#generateCSV">generateCSV</a></li><li><a href="global.html#getStatistics">getStatistics</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ActionsLog.html">ActionsLog</a></li><li><a href="Auth.html">Auth</a></li><li><a href="Cloudinary.html">Cloudinary</a></li><li><a href="Database.html">Database</a></li><li><a href="Logger.html">Logger</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CreateConnection">CreateConnection</a></li><li><a href="global.html#executeExportType">executeExportType</a></li><li><a href="global.html#generateCSV">generateCSV</a></li><li><a href="global.html#getStatistics">getStatistics</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a> on Sun Aug 02 2020 10:47:40 GMT+0200 (GMT+02:00)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a> on Sun Aug 02 2020 17:01:38 GMT+0200 (GMT+02:00)
 </footer>
 
 <script> prettyPrint(); </script>

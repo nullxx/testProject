@@ -7,6 +7,7 @@ class ActionsLog {
      * Report activity as Log
      * @param {number} acType Activity type
      * @param {string} msg Activity description message
+     * @param {User} user User who made the activity
      */
     static reportActivity = async (acType, msg, user) => {
         const Logger = await new (require('../Logger'))()
@@ -16,6 +17,7 @@ class ActionsLog {
      * Report error as Log
      * @param {number} errType Error type
      * @param {string} errMsg Error description message
+     * @param {User} user User who made the activity
      */
     static reportError = async (errType, errMsg, user) => {
         const Logger = await new (require('../Logger'))()
