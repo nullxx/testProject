@@ -17,7 +17,7 @@ router.post('/', (req, res) => {
     new Auth().then(auth => {
         auth.login(nickname, hashedPwd, scope)
             .then(lgn => {
-                ActionsLog.reportActivity(5, "Login successfull", lgn.user.id)
+                ActionsLog.reportActivity(5, `Login successfull WITH SCOPE ${scope}`, lgn.user.id)
                 res.send({
                     code: 1,
                     msg: "Login successful",
