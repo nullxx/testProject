@@ -20,7 +20,7 @@ module.exports = () => {
                     console.info("##########·················  AUTH READY  ··················##########");
 
                     new Cloudinary(Config.cloudinary.options.cloudName, Config.cloudinary.options.apiKey, Config.cloudinary.options.apiSecret)
-                    console.info("##########···········  CLOUDINARY READY  ··················##########");
+                    console.info("##########··············  CLOUDINARY READY  ···············##########");
 
                     console.info("###################### FINISHED LOADING MODULES #####################")
                     ActionsLog.reportActivity(2, "MODULES LOADED")
