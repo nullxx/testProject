@@ -45,13 +45,9 @@
     <section>
         <article><h1>TEST PROJECT</h1>
 <p>Test project for RebellionPay team.</p>
-<h2>Getting Started</h2>
-<h3>Requested</h3>
-<p>We would like to start to use Cloudinary to save some public photos, but we are afraid about the use some people could do of this plaform.</p>
-<p>We need a Microservice with 2 calls made with Node.js.</p>
-<p>This applicaton is going to run into a cluster so it could be good dockerize the applica&quot;on.</p>
 <h3>Index</h3>
 <ul>
+<li><a href="#Getting%20Started">Getting Started</a></li>
 <li><a href="#Security">Security</a> - Auth used on login (Bearer token)</li>
 <li><a href="#Database">Database</a> - Simulated DB storage</li>
 <li><a href="#Logging">Logging</a> - Log detailed processes</li>
@@ -66,6 +62,19 @@
 </ul>
 </li>
 </ul>
+<h2>Getting Started</h2>
+<h3>Requested</h3>
+<p>We would like to start to use Cloudinary to save some public photos, but we are afraid about the use some people could do of this plaform.</p>
+<p>We need a Microservice with 2 calls made with Node.js.</p>
+<p>This applicaton is going to run into a cluster so it could be good dockerize the application.</p>
+<h3>Setup</h3>
+<p><strong>Requirements</strong>:</p>
+<ul>
+<li>node</li>
+<li>npm</li>
+<li>docker</li>
+</ul>
+<p><strong>RUN</strong>: <code>bash run.sh</code> inside root project</p>
 <h1>Security</h1>
 <p>As requested, we want to secure the usage of this platform.
 We will need <code>Authorization</code> header with token provided by:</p>
@@ -142,8 +151,47 @@ Example: <code>Autorization: Bearer &lt;data.token&gt;</code></p>
 <h1>Services</h1>
 <p>This is a platform that could host multiple services.</p>
 <h2>Cloudinary</h2>
+<ul>
+<li><a href="https://nullxx.github.io/testProject/doc/src_Services_Cloudinary_index.js.html#line37"><code>getResources()</code></a>: get resources from cloudinary.</li>
+</ul>
 <h3>Statistics</h3>
-<h3>Exporting</h3></article>
+<p><strong>Path:</strong> <code>/cloudinary/statistics</code></p>
+<p><strong><a href="https://nullxx.github.io/testProject/doc/global.html#getStatistics">Params</a>:</strong></p>
+<ul>
+<li>limitResources - Cloudinary resources options</li>
+<li>options (options available: <code>['format', 'size', 'avgSze']</code>)</li>
+</ul>
+<p>Output example:</p>
+<pre class="prettyprint source lang-json"><code>{
+    &quot;code&quot;: 1,
+    &quot;msg&quot;: &quot;Successfull&quot;,
+    &quot;data&quot;: {
+        &quot;totalImages&quot;: 50,
+        &quot;biggestPicture&quot;: 1465984,
+        &quot;smallestPicture&quot;: 21679,
+        &quot;avgSze&quot;: 412114.4,
+        &quot;formats&quot;: {
+            &quot;jpg&quot;: 50
+        }
+    }
+}
+</code></pre>
+<h3>Exporting</h3>
+<p>Export types:</p>
+<ul>
+<li><strong><a href="https://nullxx.github.io/testProject/doc/global.html#generateCSV">CSV</a>:</strong>
+<ul>
+<li>Response example:</li>
+</ul>
+<pre class="prettyprint source lang-csv"><code> public_id,folder,filename,format,version,resource_type,type,created_at,uploaded_at,bytes,backup_bytes,width,height,aspect_ratio,pixels,url,secure_url,status,access_mode,access_control,etag,created_by,uploaded_by
+ yellow_maple_leaf-1366x768_aoit8p,,yellow_maple_leaf-1366x768_aoit8p,jpg,1580932133,image,upload,2020-02-05T19:48:53+00:00,2020-02-05T19:48:53+00:00,284542,0,1366,768,1.77865,1049088,http://res.cloudinary.com/dbnuvqzms/image/upload/v1580932133/yellow_maple_leaf-1366x768_aoit8p.jpg,https://res.cloudinary.com/dbnuvqzms/image/upload/v1580932133/yellow_maple_leaf-1366x768_aoit8p.jpg,active,public,,e2ba97ddebd037832f57e6956bbb0e1f,469833719843844,469833719843844
+ wwe_randy_orton-1680x1050_d1wbxy,,wwe_randy_orton-1680x1050_d1wbxy,jpg,1580932156,image,upload,2020-02-05T19:49:16+00:00,2020-02-05T19:49:16+00:00,823128,0,1680,1050,1.6,1764000,http://res.cloudinary.com/dbnuvqzms/image/upload/v1580932156/wwe_randy_orton-1680x1050_d1wbxy.jpg,https://res.cloudinary.com/dbnuvqzms/image/upload/v1580932156/wwe_randy_orton-1680x1050_d1wbxy.jpg,active,public,,a42fe829f735d125c8c32f668bb9d3b2,469833719843844,469833719843844
+ woman_warrior_wallpaper_1366x768_pxdbxb,,woman_warrior_wallpaper_1366x768_pxdbxb,jpg,1580932140,image,upload,2020-02-05T19:49:00+00:00,2020-02-05T19:49:00+00:00,326173,0,1366,768,1.77865,1049088,http://res.cloudinary.com/dbnuvqzms/image/upload/v1580932140/woman_warrior_wallpaper_1366x768_pxdbxb.jpg,https://res.cloudinary.com/dbnuvqzms/image/upload/v1580932140/woman_warrior_wallpaper_1366x768_pxdbxb.jpg,active,public,,e5a71aeea6ebdc9b9006324d305bf82d,469833719843844,469833719843844
+ wire-1366x768_dn7ngq,,wire-1366x768_dn7ngq,jpg,1580932134,image,upload,2020-02-05T19:48:54+00:00,2020-02-05T19:48:54+00:00,161009,0,1366,768,1.77865,1049088,http://res.cloudinary.com/dbnuvqzms/image/upload/v1580932134/wire-1366x768_dn7ngq.jpg,https://res.cloudinary.com/dbnuvqzms/image/upload/v1580932134/wire-1366x768_dn7ngq.jpg,active,public,,0eeb6195b754f0489ed48070e831759b,469833719843844,469833719843844
+ wine_and_grapes-1366x768_a7wao9,,wine_and_grapes-1366x768_a7wao9,jpg,1580932138,image,upload,2020-02-05T19:48:58+00:00,2020-02-05T19:48:58+00:00,278102,0,1366,768,1.77865,1049088,http://res.cloudinary.com/dbnuvqzms/image/upload/v1580932138/wine_and_grapes-1366x768_a7wao9.jpg,https://res.cloudinary.com/dbnuvqzms/image/upload/v1580932138/wine_and_grapes-1366x768_a7wao9.jpg,active,public,,a3a1cc4b2fb55be3366907c3fa5a20d7,469833719843844,469833719843844
+</code></pre>
+</li>
+</ul></article>
     </section>
 
 
@@ -160,7 +208,7 @@ Example: <code>Autorization: Bearer &lt;data.token&gt;</code></p>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a> on Sun Aug 02 2020 17:01:38 GMT+0200 (GMT+02:00)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a> on Sun Aug 02 2020 23:24:37 GMT+0200 (GMT+02:00)
 </footer>
 
 <script> prettyPrint(); </script>
