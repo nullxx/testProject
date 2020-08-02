@@ -15,6 +15,7 @@ This applicaton is going to run into a cluster so it could be good dockerize the
 	* [Cloudinary](#Cloudinary) 
 		* [Statistics](#Statistics) - Get service data statistics
 		* [Exporting](#Exporting) - Export service data
+* [Docker](#Docker)
 # Security
 As requested, we want to secure the usage of this platform. 
 We will need ```Authorization``` header with token provided by:
@@ -92,6 +93,4 @@ This is a platform that could host multiple services.
 
 ### Exporting
 
-
-
-
+# Docker
