@@ -1,0 +1,17 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "fullName": "Jon Lara Trigo",
+      "nickname": "nullx",
+      "password": "56734720a846860a8b7c280c407c5f0d1eda2ee92d4a68a1d8a027914bd08e21"
+    }
+  ],
+  "scopes": [
+    {
+      "id": 0,
+      "shortDescription": "GLOBAL_USAGE",
+      "description": "USAGE OF ALL SERVICES"
+    }
+  ]
+}
