@@ -134,9 +134,9 @@ class Cloudinary {
                 const values = Object.values(el);
                 for (let j = 0; j < values.length; j++) {
                     const value = values[j];
-                    if (!value) continue
+                    if (!value) continue;
                     if (typeof value === 'object') {
-                        values[j] = value[Object.keys(value)[0]]
+                        values[j] = value[Object.keys(value)[0]];
                     }
                 }
                 csvStr += values.join(',') + '\n';
