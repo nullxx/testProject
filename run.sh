@@ -1,5 +1,5 @@
 #!/bin/bash
-
+PORT=3000
 # Check if docker installed
 if [ ! `builtin type -p docker` ];
 then
@@ -16,4 +16,4 @@ fi
 # docker build
 docker build -t nullx/testproject .
 # docker run
-docker run nullx/testproject
+docker run -p $PORT:$PORT nullx/testproject
