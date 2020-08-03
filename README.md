@@ -123,6 +123,10 @@ Output example:
 }
 ```
 ### Exporting
+**Path:** ```/cloudinary/EXPORT_METHOD```
+
+where EXPORT_METHOD: ```['csv', ...]```
+
 Export types: 
 * **[CSV](https://nullxx.github.io/testProject/doc/global.html#generateCSV):** 
   * Response example: 
