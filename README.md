@@ -2,7 +2,7 @@
 Test project for RebellionPay team.
 
 ### Index
-* [Getting Started](#Getting%20Started) 
+* [Getting Started](#Getting-Started) 
 * [Security](#Security) - Auth used on login (Bearer token)
 * [Database](#Database) - Simulated DB storage
 * [Logging](#Logging) - Log detailed processes
