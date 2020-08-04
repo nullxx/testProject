@@ -95,8 +95,8 @@ class Cloudinary {
                     return 0;
                 }
             })
-            result.biggestPicture = sortedSize[sortedSize.length - 1].bytes;
-            result.smallestPicture = sortedSize[0].bytes;
+            result.biggestPicture = sortedSize[sortedSize.length - 1].secure_url;
+            result.smallestPicture = sortedSize[0].secure_url;
         }
         if (opts.includes('avgSze')) {
             var sum = 0;
