@@ -113,8 +113,8 @@ Output example:
     "msg": "Successfull",
     "data": {
         "totalImages": 50,
-        "biggestPicture": 1465984,
-        "smallestPicture": 21679,
+        "biggestPicture": "https://res.cloudinary.com/dbnuvqzms/image/upload/v1580932142/wallpaper_batman_arkham_asylum_04_2560x1600_bj8ejf.jpg",
+        "smallestPicture": "https://res.cloudinary.com/dbnuvqzms/image/upload/v1580932149/thumb-96614_bpxlpa.jpg",
         "avgSze": 412114.4,
         "formats": {
             "jpg": 50
