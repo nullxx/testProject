@@ -47,6 +47,7 @@ class Cloudinary {
                         const result = await cloudinary.search
                             .sort_by('public_id', 'desc')
                             .max_results(resourcesOpts.max_results)
+                            .expression("resource_type:image")
                             .next_cursor(nextCursor)
                             .execute()
                         const newResources = result.resources;
